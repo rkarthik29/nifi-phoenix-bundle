@@ -18,7 +18,7 @@
 
     <groupId>org.apache.nifi</groupId>
     <artifactId>nifi-phoenix-bundle</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>${nifi.version}</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -29,9 +29,9 @@
     </modules>
 
     <properties>
-        <nifi.version>1.2.0.3.0.1.1-5</nifi.version>
-        <hbase.version>1.1.2</hbase.version>
-        <phoenix.version>4.4.0-HBase-1.1</phoenix.version>
+        <nifi.version>1.5.0.3.1.1.0-35</nifi.version>
+        <hbase.version>1.1.2.2.6.4.0-91</hbase.version>
+        <phoenix.version>4.7.0.2.6.4.0-91</phoenix.version>
         <hadoop.guava.version>12.0.1</hadoop.guava.version>
         <org.slf4j.version>1.7.25</org.slf4j.version>
     </properties>
@@ -56,7 +56,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+   <repositories>
+    <repository>
+      <id>hdp-repo</id>
+      <name>hdprepo</name>
+      <url>http://repo.hortonworks.com/content/groups/public/</url>
+    </repository>
+  </repositories>
     <build>
         <plugins>
             <plugin>
@@ -76,5 +82,5 @@
             </plugin>
         </plugins>
     </build>
-
+    
 </project>

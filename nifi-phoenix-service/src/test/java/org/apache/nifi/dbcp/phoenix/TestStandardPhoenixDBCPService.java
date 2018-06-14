@@ -32,13 +32,15 @@ public class TestStandardPhoenixDBCPService {
     @Test
     public void testService() throws InitializationException {
         final TestRunner runner = TestRunners.newTestRunner(TestProcessor.class);
+        
         final StandardPhoenixDBCPService service = new StandardPhoenixDBCPService();
         runner.addControllerService("test-good", service);
-        
-        runner.setProperty(service, StandardPhoenixDBCPService.DATABASE_URL, "jdbc:phoenix:birens-hdp2:2181:/hbase-unsecure");
+        runner.setProperty(service,"phoenix.schema.isNameSpaceMappingEnabled","true");
+        runner.setProperty(service, StandardPhoenixDBCPService.DATABASE_URL, "jdbc:phoenix:ssahihdp0.field.hortonworks.com:2181:/hbase-unsecure");
         //runner.setProperty(service, StandardPhoenixDBCPService.DB_USER, "hdfs");
         runner.setProperty(service, StandardPhoenixDBCPService.VALIDATION_QUERY,"SELECT 1 FROM SYSTEM.CATALOG LIMIT 1");
         runner.enableControllerService(service);
+        
         service.getConnection();
         runner.assertValid(service);
     }
