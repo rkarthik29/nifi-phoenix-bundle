@@ -2,7 +2,11 @@
 
 git clone this in you nifi/nifi-nar-bundle folder.
 
-do mvn clean package
+do mvn clean package , this will use the default versions for hbase,nifi and phoenix mentioned in the root pom.xml.
+
+To build against a specific version of nifi,hbase or phoenix , build as
+
+mvn clean package -Dnifi.version=<version> -Dhbase.version=<version> -Dphoenix.version=<>
 
 cd nifi-phoenix-bundle/nifi-phoenix-service-nar/target
 
